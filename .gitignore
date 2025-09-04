@@ -1,0 +1,22 @@
+# Android Studio / IntelliJ
+*.iml
+/.idea/
+.gradle/
+/local.properties
+
+# Build Folders
+/build/
+/app/build/ # Optional if /build/ covers it, but good for clarity
+
+# Mac
+.DS_Store
+
+# Captures (from emulator, etc.)
+/captures/
+
+# Native Build
+.externalNativeBuild/
+.cxx/
+
+# KSP (Kotlin Symbol Processing) build folders
+*/build/generated/ksp/
