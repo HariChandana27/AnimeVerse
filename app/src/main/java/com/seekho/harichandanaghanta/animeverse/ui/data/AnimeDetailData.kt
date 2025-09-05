@@ -6,11 +6,11 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class AnimeDetailData(
     val id: Int,
-    val title: String?,
-    val synopsis: String?,
-    val episodes: Int?,
-    val score: Double?,
-    val genres: List<String>?,
-    val trailerUrl: String?,
-    val imagesUrl: String?
+    val title: String? = null,
+    val synopsis: String? = null,
+    val episodes: Int? = null,
+    val score: Double? = null,
+    val genres: List<String>? = null,
+    val trailerUrl: String? = null,
+    val imagesUrl: String? = null
 ) : Parcelable
