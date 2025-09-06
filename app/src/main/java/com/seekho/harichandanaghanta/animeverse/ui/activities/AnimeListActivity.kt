@@ -29,6 +29,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.seekho.harichandanaghanta.animeverse.R
+import com.seekho.harichandanaghanta.animeverse.data.remote.GenreDetailData
 import com.seekho.harichandanaghanta.animeverse.ui.composables.AnimeListItem
 import com.seekho.harichandanaghanta.animeverse.ui.data.AnimeDetailData
 import com.seekho.harichandanaghanta.animeverse.ui.theme.AnimeVerseTheme
@@ -148,8 +149,16 @@ fun AnimeScreen(
 fun AnimeScreenPreview() {
     AnimeVerseTheme {
         val previewList = listOf(
-            AnimeDetailData(id = 1, title = "Preview Anime 1", episodes = 12, score = 8.0, genres = listOf("Action")),
-            AnimeDetailData(id = 2, title = "Preview Anime 2", episodes = 24, score = 8.5, genres = listOf("Comedy"))
+            AnimeDetailData(
+                id = 1, title = "Preview Anime 1", episodes = 12, score = 8.0, genresData = listOf(
+                    GenreDetailData("Action")
+                )
+            ),
+            AnimeDetailData(
+                id = 2, title = "Preview Anime 2", episodes = 24, score = 8.5, genresData = listOf(
+                    GenreDetailData("Comedy")
+                )
+            ),
         )
         AnimeScreen(animeList = previewList, isLoading = false, errorMessage = null)
     }
