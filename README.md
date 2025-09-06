@@ -7,8 +7,8 @@ Developed using:
 -	MVVM and Clean architecture for maintainable code
 -	Retrofit for API calls
 -	Glide for image loading from URLs
--	StateFlows for reactive programming (data loading from API and error state handling) 
--	RoomDB for storing the loaded data for caching
+-	StateFlows for reactive programming (data loading from API and error state handling)
+-	Repository pattern with RoomDB for offline data caching and persistence.
 
 Scope of improvements:
 -	Currently, AnimeDetailData is being used for holding the data to be displayed on both screens. This can be separated.
