@@ -120,9 +120,10 @@ fun AnimeScreen(
                             title = anime.title ?: "No Title",
                             episodes = anime.episodes ?: 0,
                             rating = anime.score ?: 0.0,
+                            imageUrl = anime.imagesUrl,
                             onItemClick = {
                                 val intent = Intent(context, AnimeDetailActivity::class.java)
-                                intent.putExtra("anime_detail_data", anime)
+                                intent.putExtra("anime_id", anime.id)
                                 context.startActivity(intent)
                             }
                         )

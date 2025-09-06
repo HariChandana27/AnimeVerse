@@ -15,4 +15,11 @@ class AnimeRepository {
             response.data
         }
     }
+
+    suspend fun getAnimeDetails(animeId: Int): AnimeDetailData {
+        return withContext(Dispatchers.IO) {
+            val response = jikanApiService.getAnimeDetails(animeId)
+            response.data
+        }
+    }
 }

@@ -1,6 +1,5 @@
 package com.seekho.harichandanaghanta.animeverse.ui.composables
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -19,17 +18,21 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
+import com.bumptech.glide.integration.compose.GlideImage
+import com.bumptech.glide.integration.compose.placeholder
 import com.seekho.harichandanaghanta.animeverse.R
 import com.seekho.harichandanaghanta.animeverse.ui.theme.AnimeVerseTheme
 
+@OptIn(ExperimentalGlideComposeApi::class)
 @Composable
 fun AnimeListItem(
     title: String,
     episodes: Int,
     rating: Double,
+    imageUrl: String?,
     onItemClick: () -> Unit
 ) {
     Card(
@@ -44,13 +47,15 @@ fun AnimeListItem(
                 .padding(8.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Image(
-                painter = painterResource(id = R.drawable.ic_launcher_background),
+            GlideImage(
+                model = imageUrl,
                 contentDescription = "$title poster",
-                contentScale = ContentScale.Crop,
                 modifier = Modifier
                     .size(60.dp)
-                    .clip(CircleShape)
+                    .clip(CircleShape),
+                contentScale = ContentScale.Crop,
+                loading = placeholder(R.drawable.ic_launcher_background),
+                failure = placeholder(R.drawable.ic_launcher_background)
             )
 
             Spacer(modifier = Modifier.width(8.dp))
@@ -81,6 +86,7 @@ fun AnimeListItemPreview() {
             title = "Anime Title",
             episodes = 24,
             rating = 9.1,
+            imageUrl = "http://example.com/image.jpg",
             onItemClick = {}
         )
     }
